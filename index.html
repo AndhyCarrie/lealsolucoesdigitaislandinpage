@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leal Soluções Digitais | Software sob medida e consultoria digital</title>
+<meta name="description" content="Software sob medida, automações e consultoria digital para empresas que precisam organizar a operação. Identificamos o gargalo real e construímos a solução em torno do seu processo.">
+<meta property="og:title" content="Leal Soluções Digitais">
+<meta property="og:description" content="Software sob medida e consultoria digital para o jeito único que a sua empresa trabalha.">
+<meta property="og:image" content="imagens/capa-linkedin-1584x396-fundo-preto.png">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="imagens/favicon.ico" sizes="any">
+<link rel="icon" href="imagens/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="imagens/apple-touch-icon-180x180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<style>
+  :root{
+    --azul:#0B57B2; --azul-claro:#1B72DA; --marinho:#06184A; --marinho-2:#08205E;
+    --bs-body-font-family:'Inter',system-ui,sans-serif;
+  }
+  body{background:var(--azul);color:#fff;font-size:1.02rem;}
+  body.intro-ativa{overflow:hidden;height:100vh;}
+  h1,h2,h3,h4,.font-title{font-family:'Poppins',sans-serif;font-weight:600;letter-spacing:-.02em;}
+  .bg-marinho{background:var(--marinho)!important;}
+  .bg-azul{background:var(--azul)!important;}
+  .card-vidro{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#fff;}
+  .card-vidro-forte{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);color:#fff;}
+  .texto-suave{color:rgba(255,255,255,.78);}
+  .rotulo{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.65);}
+  .numero{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.05rem;width:2.4rem;height:2.4rem;
+          display:flex;align-items:center;justify-content:center;border-radius:50%;
+          background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);flex:0 0 auto;}
+  .badge-foco{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+              background:#fff;color:var(--marinho);}
+  .btn-light{--bs-btn-color:var(--marinho);--bs-btn-hover-color:var(--marinho);font-weight:600;}
+  .btn{font-family:'Poppins',sans-serif;}
+  .accordion{--bs-accordion-bg:transparent;--bs-accordion-color:#fff;--bs-accordion-border-color:rgba(255,255,255,.18);
+             --bs-accordion-btn-color:#fff;--bs-accordion-active-color:#fff;--bs-accordion-active-bg:rgba(255,255,255,.08);
+             --bs-accordion-btn-focus-box-shadow:none;}
+  .accordion-button{font-family:'Poppins',sans-serif;font-weight:500;background:rgba(255,255,255,.05);}
+  .accordion-button::after{filter:invert(1) grayscale(1) brightness(2);}
+  .linha{height:3px;width:64px;background:#fff;border-radius:3px;}
+  .navbar-leal{background:rgba(6,24,74,.92);backdrop-filter:blur(10px);}
+  .form-control:focus,.form-select:focus{border-color:var(--azul);box-shadow:0 0 0 .2rem rgba(11,87,178,.2);}
+  a.link-branco{color:#fff;text-decoration:underline;text-underline-offset:3px;}
+  a.link-branco:hover{color:rgba(255,255,255,.8);}
+  section{scroll-margin-top:92px;}
+  p{text-align:justify;text-align-last:left;-webkit-hyphens:auto;hyphens:auto;}
+  p.rotulo{text-align:left;}
+  .accordion-body{text-align:justify;text-align-last:left;-webkit-hyphens:auto;hyphens:auto;}
+  .lista-contraste{list-style:none;padding-left:0;margin-bottom:0;}
+  .lista-contraste li{position:relative;padding-left:1.7rem;margin-bottom:.85rem;}
+  .lista-contraste li i{position:absolute;left:0;top:.2rem;}
+
+  /* animação */
+  .intro-overlay{
+    position:fixed;inset:0;z-index:2000;background:var(--marinho);
+    display:flex;align-items:center;justify-content:center;
+    transition:opacity .6s ease;
+  }
+  .intro-overlay.intro-sumindo{opacity:0;pointer-events:none;}
+  .intro-svg{width:clamp(84px,22vw,150px);height:auto;overflow:visible;}
+  .intro-svg path,.intro-svg circle{fill:none;stroke:#fff;stroke-width:46;stroke-linecap:round;stroke-linejoin:round;}
+  .intro-svg circle{fill:none;}
+
+  .marca-fundo{opacity:.06;pointer-events:none;user-select:none;}
+  .marca-fundo svg{display:block;width:100%;height:100%;}
+</style>
+</head>
+<body class="intro-ativa">
+
+<!--Animação de entrada-->
+<div id="intro" class="intro-overlay" aria-hidden="true">
+  <svg id="introSvg" class="intro-svg" viewBox="0 0 990 1180" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(35.507 64.187) scale(0.956023)">
+      <path d="M80 50 V986 A64 64 0 0 0 144 1050 H890"/>
+      <path d="M215 160 V368 L285 438 V786 A62 62 0 0 0 347 848 H723"/>
+      <path d="M200 715 V880 A45 45 0 0 0 245 925 H545"/>
+      <path d="M402 232 V690"/>
+      <circle cx="402" cy="147" r="85"/>
+      <circle cx="802" cy="848" r="79"/>
+    </g>
+  </svg>
+</div>
+<noscript><style>#intro{display:none!important} body.intro-ativa{overflow:auto!important;height:auto!important;}</style></noscript>
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-leal sticky-top py-2">
+  <div class="container">
+    <a class="navbar-brand py-1" href="#topo">
+      <img src="imagens/logo-horizontal-branco.svg" alt="Leal Soluções Digitais" style="height:36px">
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-label="Abrir menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#diferencial">Diferencial</a></li>
+        <li class="nav-item"><a class="nav-link" href="#consultoria">Consultoria</a></li>
+        <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+        <li class="nav-item"><a class="nav-link" href="#duvidas">Dúvidas</a></li>
+        <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+          <a class="btn btn-light px-3" href="#contato">Agendar consultoria</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--Hero-->
+<header id="topo" class="bg-marinho py-5 position-relative overflow-hidden">
+  <div class="marca-fundo position-absolute z-0" style="width:min(600px,65vw);top:50%;left:-150px;transform:translateY(-50%);" aria-hidden="true">
+    <svg viewBox="0 0 990 1180" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#fff" stroke-width="46" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M80 50 V986 A64 64 0 0 0 144 1050 H890"/>
+        <path d="M215 160 V368 L285 438 V786 A62 62 0 0 0 347 848 H723"/>
+        <path d="M200 715 V880 A45 45 0 0 0 245 925 H545"/>
+        <path d="M402 232 V690"/>
+        <circle cx="402" cy="147" r="85"/>
+        <circle cx="802" cy="848" r="79"/>
+      </g>
+    </svg>
+  </div>
+  <div class="container py-lg-5 position-relative z-1">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 text-center">
+        <p class="rotulo mb-3">Leal Soluções Digitais</p>
+        <h1 class="display-5 mb-4">Software sob medida para o jeito único que a sua empresa trabalha.</h1>
+        <p class="fs-5 texto-suave mb-4 mx-auto" style="max-width:56ch">
+          Sistema genérico pede que a sua equipe se adapte a telas prontas. Nós construímos o
+          software em torno do processo que você já usa. Também fazemos consultoria digital:
+          identificamos os gargalos da sua rotina operacional e administrativa antes de propor
+          qualquer solução.
+        </p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center mb-5">
+          <a href="#contato" class="btn btn-light btn-lg px-4">Agendar consultoria</a>
+          <a href="#diferencial" class="btn btn-outline-light btn-lg px-4">Conhecer o diferencial</a>
+        </div>
+        <div class="row g-3 texto-suave small justify-content-center">
+          <div class="col-sm-4"><i class="bi bi-check2-circle me-2"></i>Conversa inicial sem custo</div>
+          <div class="col-sm-4"><i class="bi bi-check2-circle me-2"></i>Escopo e valor fechados antes de começar</div>
+          <div class="col-sm-4"><i class="bi bi-check2-circle me-2"></i>Resposta em até um dia útil</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!--Diferencial-->
+<section id="diferencial" class="py-5 bg-azul">
+  <div class="container py-lg-4">
+    <div class="row mb-4">
+      <div class="col-lg-8">
+        <p class="rotulo mb-3">O diferencial Leal</p>
+        <h2 class="display-6 mb-3">Prateleira ou sob medida? A pergunta certa é qual dos dois ainda serve para você daqui a três anos.</h2>
+        <p class="fs-5 texto-suave mb-0">
+          Sistema pronto resolve rápido e custa pouco no primeiro mês. O preço aparece depois,
+          na forma de mensalidade que nunca acaba e de funcionalidade que nunca encaixou na
+          sua rotina.
+        </p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card card-vidro h-100 rounded-4">
+          <div class="card-body p-4 p-lg-5">
+            <p class="rotulo mb-3">Solução genérica</p>
+            <ul class="lista-contraste texto-suave">
+              <li><i class="bi bi-x-circle text-white-50"></i>Sua equipe se adapta ao sistema, não o contrário.</li>
+              <li><i class="bi bi-x-circle text-white-50"></i>Mensalidade por usuário, reajustada todo ano, para sempre.</li>
+              <li><i class="bi bi-x-circle text-white-50"></i>Dezenas de funções que você paga e nunca abre.</li>
+              <li><i class="bi bi-x-circle text-white-50"></i>Seus dados ficam no ambiente do fornecedor.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card card-vidro-forte h-100 rounded-4">
+          <div class="card-body p-4 p-lg-5">
+            <p class="rotulo mb-3" style="color:#fff">Solução Leal, sob medida</p>
+            <ul class="lista-contraste">
+              <li><i class="bi bi-check-circle-fill"></i>O sistema é construído em torno do seu processo.</li>
+              <li><i class="bi bi-check-circle-fill"></i>Investimento definido, sem taxa por usuário.</li>
+              <li><i class="bi bi-check-circle-fill"></i>Só as telas e regras que a sua operação usa de fato.</li>
+              <li><i class="bi bi-check-circle-fill"></i>Seus dados ficam com você, exportáveis quando quiser.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Consultoria-->
+<section id="consultoria" class="py-5 bg-marinho">
+  <div class="container py-lg-4">
+    <div class="row mb-5">
+      <div class="col-lg-8">
+        <p class="rotulo mb-3">Consultoria digital</p>
+        <h2 class="display-6 mb-3">Antes de programar, entendemos onde o tempo da sua empresa está se perdendo.</h2>
+        <p class="fs-5 texto-suave mb-0">
+          Muita empresa quer comprar um sistema sem antes entender qual é o gargalo real da
+          operação. Por isso, a consultoria digital da Leal mapeia a rotina administrativa e
+          operacional, aponta onde está o retrabalho e o tempo perdido, e só então desenha a
+          solução sob medida que organiza os processos e alavanca o negócio.
+        </p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="card card-vidro h-100 rounded-4"><div class="card-body p-4 d-flex gap-3">
+          <div class="numero">1</div>
+          <div>
+            <h3 class="h5 mb-2">Diagnóstico da rotina</h3>
+            <p class="texto-suave mb-0">Conversamos com quem executa o processo no dia a dia e mapeamos onde a informação se perde.</p>
+          </div>
+        </div></div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-vidro h-100 rounded-4"><div class="card-body p-4 d-flex gap-3">
+          <div class="numero">2</div>
+          <div>
+            <h3 class="h5 mb-2">Solução sob medida</h3>
+            <p class="texto-suave mb-0">Desenhamos o sistema, a automação ou o site que resolve o gargalo identificado, sem excesso.</p>
+          </div>
+        </div></div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-vidro h-100 rounded-4"><div class="card-body p-4 d-flex gap-3">
+          <div class="numero">3</div>
+          <div>
+            <h3 class="h5 mb-2">Resultado acompanhado</h3>
+            <p class="texto-suave mb-0">Entregamos em etapas e medimos o ganho real de tempo e organização a cada uma delas.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Serviços-->
+<section id="servicos" class="py-5 bg-azul">
+  <div class="container py-lg-4">
+    <div class="row mb-4">
+      <div class="col-lg-8">
+        <p class="rotulo mb-3">Onde entramos</p>
+        <h2 class="display-6 mb-0">Software personalizado é o centro do nosso trabalho.</h2>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="card card-vidro-forte h-100 rounded-4"><div class="card-body p-4 p-lg-5">
+          <span class="badge badge-foco rounded-pill px-3 py-2 mb-3">Foco principal</span>
+          <h3 class="h4 mb-3">Software sob medida</h3>
+          <p class="texto-suave mb-0">
+            Sistemas construídos a partir do processo que a sua empresa já usa, com as regras
+            que você conhece e acesso pelo computador e pelo celular. É a solução indicada
+            quando o seu negócio tem uma particularidade que nenhum sistema de prateleira aceita.
+          </p>
+        </div></div>
+      </div>
+      <div class="col-lg-5">
+        <div class="row g-4 h-100">
+          <div class="col-12">
+            <div class="card card-vidro rounded-4"><div class="card-body p-4">
+              <h3 class="h6 mb-2">Automações de processos</h3>
+              <p class="texto-suave small mb-0">Cobrança, geração de documento e relatório periódico passam a acontecer sozinhos.</p>
+            </div></div>
+          </div>
+          <div class="col-12">
+            <div class="card card-vidro rounded-4"><div class="card-body p-4">
+              <h3 class="h6 mb-2">Sites institucionais</h3>
+              <p class="texto-suave small mb-0">Página feita para transmitir a seriedade do seu atendimento e converter visitante em contato.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5 pt-3 border-top border-light border-opacity-25 texto-suave small g-3">
+      <div class="col-md-4"><i class="bi bi-shield-check me-2"></i>Escopo e valor fechados antes de começar</div>
+      <div class="col-md-4"><i class="bi bi-eye me-2"></i>Você acompanha a construção a cada entrega</div>
+      <div class="col-md-4"><i class="bi bi-unlock me-2"></i>Sistema e dados são seus, sem fidelidade</div>
+    </div>
+  </div>
+</section>
+
+<!--Dúvidas-->
+<section id="duvidas" class="py-5 bg-marinho">
+  <div class="container py-lg-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="text-center mb-5">
+          <p class="rotulo mb-3">Perguntas frequentes</p>
+          <h2 class="display-6 mb-0">O que costumam nos perguntar antes de fechar.</h2>
+        </div>
+        <div class="accordion" id="faq">
+          <div class="accordion-item mb-3 rounded-4 overflow-hidden">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f1">Quanto custa um sistema sob medida?</button></h3>
+            <div id="f1" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body texto-suave">
+              O valor depende do tamanho do gargalo que precisamos resolver, por isso não trabalhamos com tabela fixa. A conversa inicial e a proposta não têm custo, então você descobre o número exato antes de assumir qualquer compromisso.
+            </div></div>
+          </div>
+          <div class="accordion-item mb-3 rounded-4 overflow-hidden">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f2">Quanto tempo leva para ficar pronto?</button></h3>
+            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body texto-suave">
+              Automações e sites costumam ficar prontos em poucas semanas. Sistemas maiores são entregues em etapas, e a primeira versão útil normalmente chega em cerca de um mês e meio, com as datas de cada entrega definidas na proposta.
+            </div></div>
+          </div>
+          <div class="accordion-item mb-3 rounded-4 overflow-hidden">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f3">Já uso um sistema pronto. Preciso trocar tudo?</button></h3>
+            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body texto-suave">
+              Na maioria das vezes, não. É comum manter o sistema atual para o que ele já faz bem e desenvolver ao lado apenas o que falta, com integração entre os dois. A recomendação será sempre a que faz mais sentido para o seu bolso.
+            </div></div>
+          </div>
+          <div class="accordion-item mb-3 rounded-4 overflow-hidden">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f4">Meus dados ficam seguros? E a LGPD?</button></h3>
+            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body texto-suave">
+              Os sistemas são construídos com acesso por senha, permissão por perfil de usuário e rotina de backup. As orientações da Lei Geral de Proteção de Dados são consideradas desde o projeto, especialmente no tratamento de dados de clientes.
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Contato, agende uma consultoria-->
+<section id="contato" class="py-5 bg-azul">
+  <div class="container py-lg-4">
+    <div class="row g-5">
+      <div class="col-lg-5">
+        <p class="rotulo mb-3">Vamos conversar</p>
+        <h2 class="display-6 mb-3">Agende uma consultoria</h2>
+        <p class="fs-5 texto-suave">
+          Conte a situação da sua empresa, mesmo que ainda esteja confusa na sua cabeça.
+          Organizar o problema faz parte do nosso trabalho.
+        </p>
+        <p class="texto-suave mb-0">
+          Você recebe uma resposta em até um dia útil, com uma primeira leitura do seu caso e
+          a sugestão do caminho mais econômico para resolver.
+        </p>
+        <div class="card card-vidro rounded-4 mt-4">
+          <div class="card-body p-4">
+            <p class="rotulo mb-3">Contato direto</p>
+            <p class="mb-2">
+              E-mail:
+              <a class="link-branco" href="mailto:lealsolucoesdigitais@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20consultoria&amp;body=Ol%C3%A1.%20Sou%20da%20empresa%20____________%20e%20preciso%20de%20ajuda%20com%3A%20">lealsolucoesdigitais@gmail.com</a>
+            </p>
+            <p class="mb-0">
+              Instagram:
+              <a class="link-branco" href="https://instagram.com/lealsolucoesdigitais__" target="_blank" rel="noopener">@lealsolucoesdigitais__</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="card bg-white text-dark rounded-4 shadow-lg border-0">
+          <div class="card-body p-4 p-lg-5">
+            <h3 class="h4 mb-4">Solicitar consultoria sem compromisso</h3>
+
+        
+            <form id="formContato" action="https://formspree.io/f/xljrqpod" method="POST" class="row g-3">
+              <input type="hidden" name="_subject" value="Novo contato pelo site da Leal Soluções Digitais">
+              <input type="text" name="_gotcha" class="d-none" tabindex="-1" autocomplete="off">
+
+              <div class="col-md-6">
+                <label class="form-label fw-semibold" for="nome">Nome completo</label>
+                <input class="form-control form-control-lg" id="nome" name="nome" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold" for="email">E-mail</label>
+                <input type="email" class="form-control form-control-lg" id="email" name="email" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold" for="whatsapp">WhatsApp</label>
+                <input class="form-control form-control-lg" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold" for="empresa">Empresa e ramo de atuação</label>
+                <input class="form-control form-control-lg" id="empresa" name="empresa">
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold" for="interesse">O que você procura</label>
+                <select class="form-select form-select-lg" id="interesse" name="interesse" required>
+                  <option value="">Selecione uma opção</option>
+                  <option>Software sob medida</option>
+                  <option>Consultoria digital</option>
+                  <option>Automação de tarefas repetitivas</option>
+                  <option>Site institucional</option>
+                  <option>Ainda não sei, preciso de orientação</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold" for="mensagem">Descreva a sua necessidade</label>
+                <textarea class="form-control" id="mensagem" name="mensagem" rows="5" required
+                  placeholder="Exemplo: controlo os pedidos em planilha, perco tempo montando relatório toda semana e queria acompanhar tudo pelo celular."></textarea>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="aceite" required>
+                  <label class="form-check-label small text-secondary" for="aceite">
+                    Autorizo o contato da Leal Soluções Digitais sobre esta solicitação.
+                  </label>
+                </div>
+              </div>
+              <div class="col-12 d-grid d-sm-flex align-items-center gap-3">
+                <button class="btn btn-primary btn-lg px-4" style="background:var(--azul);border-color:var(--azul)" type="submit">Enviar solicitação</button>
+                <span class="small text-secondary">Resposta em até um dia útil.</span>
+              </div>
+            </form>
+
+            <div id="formOk" class="alert alert-success mt-4 d-none mb-0">
+              <strong>Solicitação enviada.</strong> Obrigada pelo contato. A Leal Soluções Digitais responde em até um dia útil.
+            </div>
+            <div id="formErro" class="alert alert-danger mt-4 d-none mb-0">
+              Não foi possível enviar agora. Escreva diretamente para
+              <a href="mailto:lealsolucoesdigitais@gmail.com">lealsolucoesdigitais@gmail.com</a>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Rodapé-->
+<footer class="bg-marinho border-top border-light border-opacity-25 py-5">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-md-4">
+        <img src="imagens/logo-horizontal-branco.svg" alt="Leal Soluções Digitais" style="height:34px">
+        <p class="texto-suave small mt-3 mb-0">Software sob medida e consultoria digital para empresas que querem organizar a operação e crescer.</p>
+      </div>
+      <div class="col-md-4">
+        <p class="mb-1"><a class="link-branco" href="mailto:lealsolucoesdigitais@gmail.com">lealsolucoesdigitais@gmail.com</a></p>
+        <p class="mb-0"><a class="link-branco" href="https://instagram.com/lealsolucoesdigitais__" target="_blank" rel="noopener">@lealsolucoesdigitais__</a></p>
+      </div>
+      <div class="col-md-4 text-md-end">
+        <p class="texto-suave small mb-0">Leal Soluções Digitais. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Animação de entrada: desenha o símbolo e o leva até o canto superior esquerdo da tela
+  (function () {
+    var body = document.body;
+    var overlay = document.getElementById('intro');
+    var svg = document.getElementById('introSvg');
+    var reduzido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function encerrarIntro() {
+      overlay.classList.add('intro-sumindo');
+      body.classList.remove('intro-ativa');
+      setTimeout(function () {
+        if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      }, 700);
+    }
+
+    if (reduzido || !window.requestAnimationFrame) {
+      encerrarIntro();
+      return;
+    }
+
+    // trava de segurança para não deixar o visitante preso na animação
+    var travaSeguranca = setTimeout(encerrarIntro, 4500);
+
+    try {
+      var formas = svg.querySelectorAll('path, circle');
+      var atraso = 0;
+
+      formas.forEach(function (forma, indice) {
+        var comprimento = forma.getTotalLength();
+        forma.style.strokeDasharray = comprimento;
+        forma.style.strokeDashoffset = comprimento;
+      });
+
+      setTimeout(function () {
+        formas.forEach(function (forma, indice) {
+          var comprimento = forma.getTotalLength();
+          var duracao = indice < 4 ? 550 : 380;
+          forma.style.transition = 'stroke-dashoffset ' + duracao + 'ms cubic-bezier(.65,0,.35,1)';
+          forma.style.transitionDelay = atraso + 'ms';
+          requestAnimationFrame(function () {
+            forma.style.strokeDashoffset = '0';
+          });
+          atraso += indice < 4 ? 240 : 160;
+        });
+
+        var tempoDesenho = atraso + 650;
+
+        setTimeout(moverParaCanto, tempoDesenho);
+      }, 500);
+    } catch (erro) {
+      clearTimeout(travaSeguranca);
+      encerrarIntro();
+    }
+
+    function moverParaCanto() {
+      try {
+        var margem = 28;
+        var alturaFinal = 46;
+        var retAtual = svg.getBoundingClientRect();
+        var escala = alturaFinal / retAtual.height;
+        var centroAlvoX = margem + alturaFinal / 2;
+        var centroAlvoY = margem + alturaFinal / 2;
+        var centroAtualX = retAtual.left + retAtual.width / 2;
+        var centroAtualY = retAtual.top + retAtual.height / 2;
+        var dx = centroAlvoX - centroAtualX;
+        var dy = centroAlvoY - centroAtualY;
+
+        svg.style.transition = 'transform .7s cubic-bezier(.4,0,.2,1)';
+        svg.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(' + escala + ')';
+        overlay.style.transitionDelay = '.35s';
+        overlay.classList.add('intro-sumindo');
+        body.classList.remove('intro-ativa');
+
+        clearTimeout(travaSeguranca);
+        setTimeout(function () {
+          if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+        }, 1000);
+      } catch (erro) {
+        clearTimeout(travaSeguranca);
+        encerrarIntro();
+      }
+    }
+  })();
+
+  // Envio do formulário 
+  var form = document.getElementById('formContato');
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var botao = form.querySelector('button[type=submit]');
+    var textoOriginal = botao.textContent;
+    botao.disabled = true; botao.textContent = 'Enviando...';
+    try {
+      var resposta = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (resposta.ok) {
+        form.classList.add('d-none');
+        document.getElementById('formOk').classList.remove('d-none');
+      } else { throw new Error('falha'); }
+    } catch (erro) {
+      document.getElementById('formErro').classList.remove('d-none');
+    } finally {
+      botao.disabled = false; botao.textContent = textoOriginal;
+    }
+  });
+
+  // fecha o menu no celular ao clicar em um link
+  document.querySelectorAll('#menu .nav-link, #menu .btn').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var menu = bootstrap.Collapse.getInstance(document.getElementById('menu'));
+      if (menu) menu.hide();
+    });
+  });
+</script>
+</body>
+</html>
