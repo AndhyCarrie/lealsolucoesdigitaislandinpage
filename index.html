@@ -70,6 +70,14 @@
   .intro-svg path,.intro-svg circle{fill:none;stroke:#fff;stroke-width:46;stroke-linecap:round;stroke-linejoin:round;}
   .intro-svg circle{fill:none;}
 
+  .tab-instagram{
+    z-index:1030;background:var(--marinho);border-radius:.75rem 0 0 .75rem;
+    box-shadow:0 8px 24px rgba(0,0,0,.28);opacity:0;pointer-events:none;
+    transform:translate(100%,-50%);transition:opacity .4s ease,transform .4s ease,background-color .2s ease;
+  }
+  .tab-instagram.visivel{opacity:1;pointer-events:auto;transform:translate(0,-50%);}
+  .tab-instagram:hover{background:var(--azul-claro);color:#fff;}
+
   .marca-fundo{opacity:.06;pointer-events:none;user-select:none;}
   .marca-fundo svg{display:block;width:100%;height:100%;}
 </style>
@@ -113,6 +121,12 @@
     </div>
   </div>
 </nav>
+
+<a id="tabInstagram" href="https://www.instagram.com/lealsolucoesdigitais__/" target="_blank" rel="noopener"
+   class="tab-instagram position-fixed top-50 end-0 d-flex align-items-center gap-2 px-3 py-2 text-white text-decoration-none">
+  <i class="bi bi-instagram fs-5"></i>
+  <span class="fw-semibold">Sigam-nos</span>
+</a>
 
 <!--Hero-->
 <header id="topo" class="bg-marinho py-5 position-relative overflow-hidden">
@@ -456,6 +470,21 @@
   </div>
 </section>
 
+<!--Instagram-->
+<section class="py-4 bg-azul">
+  <div class="container text-center">
+    <p class="rotulo mb-3">No Instagram</p>
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-center">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Dcm0KmSkVfw/?img_index=1" data-instgrm-version="14" style="max-width:320px;width:100%;margin:0;"></blockquote>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-center">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DcfH_P0Ica7/" data-instgrm-version="14" style="max-width:320px;width:100%;margin:0;"></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!--Rodapé-->
 <footer class="bg-marinho border-top border-light border-opacity-25 py-5 position-relative overflow-hidden">
   <div class="marca-fundo position-absolute z-0" style="width:min(320px,42vw);top:50%;right:-95px;transform:translateY(-50%);" aria-hidden="true">
@@ -488,6 +517,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script async src="//www.instagram.com/embed.js"></script>
 <script>
   // Animação de entrada: desenha o símbolo e o leva até o canto superior esquerdo da tela
   (function () {
@@ -596,6 +626,20 @@
       botao.disabled = false; botao.textContent = textoOriginal;
     }
   });
+
+  // mostra a aba do Instagram só depois que o banner principal sai da tela
+  (function () {
+    var aba = document.getElementById('tabInstagram');
+    var banner = document.getElementById('topo');
+    if (!aba || !banner) return;
+    if (!window.IntersectionObserver) { aba.classList.add('visivel'); return; }
+    var observador = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        aba.classList.toggle('visivel', !entrada.isIntersecting);
+      });
+    }, { threshold: 0 });
+    observador.observe(banner);
+  })();
 
   // fecha o menu no celular ao clicar em um link
   document.querySelectorAll('#menu .nav-link, #menu .btn').forEach(function (link) {
