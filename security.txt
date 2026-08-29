@@ -1,0 +1,4 @@
+Contact: mailto:lealsolucoesdigitais@gmail.com
+Expires: 2027-08-29T23:59:00Z
+Preferred-Languages: pt-BR, en
+Canonical: https://lealsolucoesdigitais.com.br/.well-known/security.txt
