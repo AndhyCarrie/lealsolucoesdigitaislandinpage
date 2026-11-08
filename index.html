@@ -52,6 +52,7 @@
     --marinho-escuro:#040F33;
     --azul:#0B57B2;
     --nevoa:#EEF3FA;
+    --fundo:#F5F7FB;
     --ambar:#FFB020;
     --ambar-hover:#FFC34D;
     --texto-suave:#C9D6EE;
@@ -65,7 +66,7 @@
   *,*::before,*::after{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
-  body{margin:0;font-family:var(--fonte);font-size:18px;line-height:1.6;color:var(--marinho);background:#fff;-webkit-font-smoothing:antialiased;}
+  body{margin:0;font-family:var(--fonte);font-size:18px;line-height:1.6;color:var(--marinho);background:var(--fundo);-webkit-font-smoothing:antialiased;}
   img{max-width:100%;display:block;}
   a{color:var(--azul);text-underline-offset:4px;}
   a:hover{color:var(--marinho);}
@@ -185,7 +186,7 @@
 
   .socios{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;}
   .socio{display:flex;gap:24px;align-items:flex-start;}
-  .socio img{width:112px;height:112px;flex:0 0 auto;border-radius:50%;object-fit:cover;background:var(--marinho);}
+  .socio img{width:112px;height:112px;flex:0 0 auto;border-radius:50%;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--linha),0 6px 18px rgba(6,24,74,.08);}
   .socio h3{margin:0 0 4px;font-size:22px;font-weight:700;}
   .socio .cargo{margin:0 0 10px;color:var(--azul);font-weight:600;font-size:16px;}
   .socio p:last-child{margin:0;color:var(--texto-claro);font-size:16px;}
@@ -561,7 +562,7 @@
         </div>
         <div class="aceite">
           <input id="aceite" name="aceite" type="checkbox" value="sim" required>
-          <label for="aceite">Autorizo a Leal a entrar em contato sobre esta solicitação, conforme a</label>
+          <label for="aceite">Autorizo a Leal a entrar em contato sobre esta solicitação.</label>
         </div>
         <div class="form-envio">
           <button type="submit" class="btn btn-ambar">Solicitar diagnóstico</button>
