@@ -154,7 +154,7 @@
   .contraste .leal{background:var(--nevoa);}
   .contraste .th{padding-top:18px;padding-bottom:18px;font-weight:700;}
 
-  .etapas{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;}
+  .etapas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:40px;}
   .etapa{border-top:2px solid var(--marinho);padding-top:24px;}
   .etapa-num{display:block;font-size:15px;font-weight:700;color:var(--azul);margin-bottom:10px;}
   .etapa h3{margin:0 0 10px;font-size:24px;font-weight:700;letter-spacing:-.01em;}
@@ -169,7 +169,7 @@
   .servico{border-top:1px solid var(--linha);padding-top:22px;}
   .servico h3{margin:0 0 8px;font-size:21px;font-weight:700;}
   .servico p{margin:0;color:var(--texto-claro);}
-  .garantias{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px 40px;margin-top:64px;padding-top:32px;border-top:1px solid var(--linha);}
+  .garantias{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:24px 40px;margin-top:64px;padding-top:32px;border-top:1px solid var(--linha);}
   .garantia{display:flex;gap:14px;align-items:flex-start;}
   .garantia svg{width:26px;height:26px;flex:0 0 auto;margin-top:2px;}
   .garantia p{margin:0;}
@@ -184,7 +184,7 @@
   .caso-metricas strong{display:block;font-size:clamp(32px,4vw,44px);line-height:1;font-weight:800;letter-spacing:-.02em;}
   .caso img{border-radius:14px;box-shadow:0 20px 50px rgba(6,24,74,.15);}
 
-  .socios{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;}
+  .socios{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:40px;}
   .socio{display:flex;gap:24px;align-items:flex-start;}
   .socio img{width:112px;height:112px;flex:0 0 auto;border-radius:50%;object-fit:cover;background:#fff;box-shadow:0 0 0 1px var(--linha),0 6px 18px rgba(6,24,74,.08);}
   .socio h3{margin:0 0 4px;font-size:22px;font-weight:700;}
@@ -209,12 +209,12 @@
   .contato-texto .grande{font-size:19px;margin:0 0 20px;}
   .contato-direto{display:flex;flex-direction:column;gap:12px;margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,.18);}
   .contato-direto p{margin:0;color:#fff;}
-  .contato-direto a{color:#fff;}
+  .contato-direto a,.rodape a{color:#fff;overflow-wrap:anywhere;}
   .contato-direto a:hover{color:var(--texto-suave);}
   .contato-cartao{flex:1.3 1 460px;min-width:0;background:#fff;color:var(--marinho);border-radius:14px;padding:40px;}
   .contato-cartao h3{margin:0 0 28px;font-size:24px;font-weight:700;}
   @media (max-width: 520px){.contato-cartao{padding:28px 22px;}.servico-principal{padding:32px 24px;}}
-  .form{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+  .form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:20px;}
   .campo{display:flex;flex-direction:column;gap:6px;}
   .campo-inteiro{grid-column:1 / -1;}
   .campo label{font-weight:600;font-size:16px;}
@@ -263,6 +263,48 @@
                 border-radius:8px;color:var(--texto-claro);font-size:26px;line-height:1;cursor:pointer;}
   .balao-fechar:hover{background:var(--nevoa);color:var(--marinho);}
   @media (prefers-reduced-motion: reduce){.balao-whatsapp{transition:none;}}
+  @media (max-width: 760px){
+    .secao{padding:72px 0;}
+    .hero{padding:48px 0 64px;}
+    .intro-secao{font-size:18px;margin-bottom:40px;}
+
+    .contraste{display:block;min-width:0;border-top:2px solid var(--marinho);}
+    .contraste [role="row"]{display:block!important;padding:24px 0;border-bottom:1px solid var(--linha);}
+    .contraste [role="row"].contraste-cab{display:none!important;}
+    .contraste span{display:block;padding:0;border-bottom:0;}
+    .contraste .rotulo-linha{font-size:20px;font-weight:700;margin-bottom:12px;}
+    .contraste .pronto,.contraste .leal{padding:12px 16px;border-radius:8px;}
+    .contraste .pronto{margin-bottom:8px;background:#fff;border:1px solid var(--linha);}
+    .contraste .pronto::before,.contraste .leal::before{content:attr(data-rotulo);display:block;font-size:13px;font-weight:700;margin-bottom:2px;}
+    .contraste .pronto::before{color:var(--texto-claro);}
+    .contraste .leal::before{color:var(--azul);}
+
+    .faq summary{font-size:18px;padding:20px 0;}
+    .servico-principal h3{font-size:26px;}
+  }
+
+  @media (max-width: 600px){
+    .nav-logo img{height:30px;}
+    .nav-links .btn{white-space:nowrap;padding:10px 14px;font-size:15px;}
+    .comparacao{margin-top:40px;}
+    .comp-barra{flex-wrap:wrap;gap:2px 12px;}
+    .planilha-corpo{padding:14px 12px 18px;}
+    .planilha{min-width:0;grid-template-columns:24px 40px minmax(0,1.5fr) minmax(0,1fr) 62px;font-size:12px;}
+    .planilha span{padding:6px 5px;overflow-wrap:anywhere;}
+    .planilha .cab{padding:6px 2px;}
+    .notas{font-size:13px;}
+
+    .sistema-lado{border-left:0;border-top:4px solid var(--ambar);}
+    .sistema-corpo{padding:18px 14px 20px;}
+    .sistema-topo strong{font-size:20px;}
+    .pedidos{min-width:0;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;font-size:15px;}
+    .pedidos .th,.pedidos .id,.pedidos .num{display:none;}
+    .pedidos .cliente{display:flex;align-items:center;}
+    .pedidos .sit{text-align:right;}
+
+    .socio{gap:18px;}
+    .socio img{width:88px;height:88px;}
+  }
 </style>
 </head>
 <body>
@@ -364,25 +406,25 @@
     <p class="intro-secao">Quando o sistema não acompanha o processo, a equipe cria atalhos. O software sob medida começa pelo jeito que a sua empresa já trabalha.</p>
     <div class="rolagem">
       <div class="contraste" role="table" aria-label="Sistema pronto comparado ao sistema sob medida">
-        <div role="row" style="display:contents">
+        <div role="row" class="contraste-cab" style="display:contents">
           <span role="columnheader" class="rotulo-linha th"></span>
           <span role="columnheader" class="pronto th">Sistema pronto</span>
           <span role="columnheader" class="leal th">Sob medida, com a Leal</span>
         </div>
         <div role="row" style="display:contents">
           <span role="rowheader" class="rotulo-linha">Quem se adapta</span>
-          <span role="cell" class="pronto">A sua equipe se adapta às telas prontas.</span>
-          <span role="cell" class="leal">O sistema é construído em torno do seu processo.</span>
+          <span role="cell" class="pronto" data-rotulo="Sistema pronto">A sua equipe se adapta às telas prontas.</span>
+          <span role="cell" class="leal" data-rotulo="Sob medida, com a Leal">O sistema é construído em torno do seu processo.</span>
         </div>
         <div role="row" style="display:contents">
           <span role="rowheader" class="rotulo-linha">As telas</span>
-          <span role="cell" class="pronto">Sobram telas que ninguém usa e falta justamente a que você precisa.</span>
-          <span role="cell" class="leal">Só as telas e regras que a sua operação usa de fato.</span>
+          <span role="cell" class="pronto" data-rotulo="Sistema pronto">Sobram telas que ninguém usa e falta justamente a que você precisa.</span>
+          <span role="cell" class="leal" data-rotulo="Sob medida, com a Leal">Só as telas e regras que a sua operação usa de fato.</span>
         </div>
         <div role="row" style="display:contents">
           <span role="rowheader" class="rotulo-linha">O que é só seu</span>
-          <span role="cell" class="pronto">Vira planilha paralela.</span>
-          <span role="cell" class="leal">Vira funcionalidade, não exceção.</span>
+          <span role="cell" class="pronto" data-rotulo="Sistema pronto">Vira planilha paralela.</span>
+          <span role="cell" class="leal" data-rotulo="Sob medida, com a Leal">Vira funcionalidade, não exceção.</span>
         </div>
       </div>
     </div>
